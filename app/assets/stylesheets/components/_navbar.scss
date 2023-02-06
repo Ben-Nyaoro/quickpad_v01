@@ -1,0 +1,55 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 50px;
+}
+
+.icon {
+  width: 35px;
+  border-radius: 50%;
+}
+
+.icon-index{
+	width: 20px;
+	height: 20px;
+	color: #002043;
+	font-size: 18px;
+}
+
+.corner {
+	width: 100%;
+	border-radius: 50px;
+}
+
+@media screen and (max-width: 767px){   
+	.logo {
+    width: 120px;
+    padding-left: 4px;
+	}
+}
+
+@media screen and (min-width: 768px) {      
+	.logo {
+    width: 160px;
+    padding-left: 4px;
+	}
+} 
+@media (min-width: 992px){      
+.logo {
+	width: 200px;
+	padding-left: 4px;
+}
+}
+@media (min-width: 1200px) {    
+	.logo {
+		width: 240px;
+    padding-left: 4px;
+	}
+}

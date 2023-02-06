@@ -1,0 +1,39 @@
+	<table class="table table-bordered table-sm">
+<thead>
+	<tr>
+		<th>Code</th>
+		<th>Account</th>
+		<th>Category</th>
+		<th>Detail Category</th>
+		<th>Description</th>
+		<th>Balance</th>
+		<th>Status</th>
+		<th>Action</th>
+		<%# <th>&nbsp;</th> %>
+	</tr>
+</thead>
+<tbody>
+	<% @accounting_codes.each do |accounting_code| %>
+		<tr>
+			<td><%= accounting_code.code %></td>
+			<td><%= accounting_code.account %></td>
+			<td><%= accounting_code.category %></td>
+			<td><%= accounting_code.detail_category %></td>
+			<td><%= accounting_code.description %></td>
+			<td><%= accounting_code.balance %></td>
+			<td><%= accounting_code.status %></td>
+			<td class="list-inline text-center">
+				<li class="nav-item">
+					<a class="nav-link" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<i class="fa-solid fa-circle-chevron-down icon-index"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<%= link_to 'View', accounting_code_path(accounting_code.id), class: "dropdown-item caret"  %>
+						<%= link_to 'Delete', accounting_code_path(accounting_code.id), method: :delete, data: {confirm: "Are you sure?"}, class: "dropdown-item caret" %>
+					</ul>
+				</li>
+			</td>
+		</tr>
+	<% end %>
+</tbody>
+	</table>

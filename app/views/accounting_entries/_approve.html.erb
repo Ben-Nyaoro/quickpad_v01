@@ -1,0 +1,62 @@
+<div id="app" data-controller="approval">
+		<hr>
+			<% if @accounting_entry.pending? %>
+				<button class="btn btn-outline-success" id="btn-approve" data-action="click->approval#approveAccountingEntry">
+					Approve
+				</button>
+				<button class="btn btn-outline-danger" id="btn-reject" data-action="click->approval#rejectAccountingEntry">
+					Reject
+				</button>
+			<% elsif @accounting_entry.approved?%>
+				<button class="btn btn-outline-dark" disabled>
+					Approved
+				</button>
+			<% else %>
+				<button class="btn btn-outline-danger" disabled>
+					Rejected
+				</button>
+			<% end %>
+		<hr>
+
+	<div class="modal" tabindex="-1" role="dialog" data-controller="modal" data-approval-target="approve">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Approve Accounting Entry</h4>
+				</div>
+				<div class="modal-body">
+					<%= simple_form_for [ @accounting_entry ] do |f| %>
+						<% if @accounting_entry.journal_entries.size < 2 %>
+							<p>Accounting entry MUST atleast two journal entries.</p>
+						<% elsif @debit_amount != @credit_amount %>
+							<p>Your accounting entry does not balance.</p>
+						<% else %>
+							<p>Are you sure you want to approve this accounting entry?</p>
+							<%= f.hidden_field :status, :value => "approved" %> <hr>
+							<%= f.submit "Approve", class: "btn btn-primary"%>
+						<% end %>
+						<button type="button" class="btn btn-secondary" data-action="click->modal#close" data-dismiss="modal">Close</button>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal" tabindex="-1" role="dialog" data-controller="modal" data-approval-target="reject">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Reject Accounting Entry</h4>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure you want to reject this accounting entry?</p>
+					<%= simple_form_for [ @accounting_entry ] do |f| %>
+					<%= f.hidden_field :status, :value => "rejected" %> <hr>
+					<%= f.submit "Reject", class: "btn btn-danger"%>
+					<button type="button" class="btn btn-secondary" data-action="click->modal#close" data-dismiss="modal">Close</button>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,83 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid d-flex justify-content-around list-inline g-5">
+		<% if user_signed_in? %>
+			<li class="nav-item dropdown">
+				<%= image_tag "quickadd.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+				<ul class="dropdown-menu">
+					<%= link_to "New Accounting Codes", new_accounting_code_path, class: "dropdown-item" %>
+					<%= link_to "New Accounting Entries", new_accounting_entry_path, class: "dropdown-item" %>
+					<%= link_to "Another action", "#", class: "dropdown-item" %> <hr>
+					<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+				</ul>
+			</li>
+
+			<li class="nav-item dropdown">
+				<%= image_tag "recent.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+				<ul class="dropdown-menu">
+					<%= link_to "Action", "#", class: "dropdown-item" %>
+					<%= link_to "Another action", "#", class: "dropdown-item" %>
+					<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+				</ul>
+			</li>
+
+			<li class="nav-item dropdown">
+				<div class="input-group border border-info rounded corner">
+					<button type="button" class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+					<button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+						<span class="visually-hidden">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#">Accounting Entries</a></li>
+						<li><a class="dropdown-item" href="#">Accounting Codes</a></li>
+						<li><a class="dropdown-item" href="#">Sales</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="#">Employees</a></li>
+					</ul>
+					<input type="text" class="form-control border border-light" aria-label="Text input with segmented dropdown button" placeholder="Search here">
+				</div>
+			</li>
+
+			<li class="nav-item dropdown">
+				<%= image_tag "notification.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+				<ul class="dropdown-menu">
+					<%= link_to "Action", "#", class: "dropdown-item" %>
+					<%= link_to "Another action", "#", class: "dropdown-item" %>
+					<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+				</ul>
+			</li>
+
+
+			<li class="nav-item dropdown">
+				<%= image_tag "settings.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+				<ul class="dropdown-menu">
+					<%= link_to "Action", "#", class: "dropdown-item" %>
+					<%= link_to "Another action", "#", class: "dropdown-item" %>
+					<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+				</ul>
+			</li>
+
+			<li class="nav-item dropdown">
+				<%= image_tag "help.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+				<ul class="dropdown-menu">
+					<%= link_to "Action", "#", class: "dropdown-item" %>
+					<%= link_to "Another action", "#", class: "dropdown-item" %>
+					<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+				</ul>
+			</li>
+
+			<li class="nav-item dropdown">
+				<%= image_tag "user.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+				<ul class="dropdown-menu">
+					<%= link_to "Action", "#", class: "dropdown-item" %>
+					<%= link_to "Another action", "#", class: "dropdown-item" %>
+					<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+				</ul>
+			</li>
+
+		<% else %>
+			<li class="nav-item">
+				<%= link_to "Login", new_user_session_path, class: "nav-link" %>
+			</li>
+		<% end %>
+		</div>
+</nav>

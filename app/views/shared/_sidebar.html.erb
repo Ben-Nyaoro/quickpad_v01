@@ -1,0 +1,142 @@
+<% if current_user %>
+	<div class="sidebar close">
+		<div class="logo-details">
+			<%= link_to root_path do %>
+				<%= image_tag "Logoshort.png", class: "logo-short" %>
+			<span class="logo_name p-3">quickpad</span>
+			<% end %> <hr>
+		</div>
+		<ul class="nav-links">
+			<li>
+				<%= link_to root_path do %>
+					<i class="fa-solid fa-gauge"></i>
+					<span class="link_name">Dashboard</span>
+				<% end %>
+				<ul class="sub-menu blank">
+					<li><a class="link_name" href="#">Sales</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="icon-link">
+					<a href="#">
+						<i class="fa-solid fa-sack-dollar"></i>
+						<span class="link_name">Sales</span>
+					</a>
+					<i class='bx bxs-chevron-down arrow'></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Sales</a></li>
+					<li><a href="#">Invoices</a></li>
+					<li><a href="#">Customers</a></li>
+					<li><a href="#">Payments Received</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="icon-link">
+					<a href="#">
+						<i class="fa-solid fa-cart-plus"></i>
+						<span class="link_name">Purchases</span>
+					</a>
+					<i class='bx bxs-chevron-down arrow' ></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Purchases</a></li>
+					<li><a href="#">Bills</a></li>
+					<li><a href="#">Expenses</a></li>
+					<li><a href="#">Suppliers</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="icon-link">
+					<a href="#">
+						<i class="fa-solid fa-cart-flatbed"></i>
+						<span class="link_name">Inventory</span>
+					</a>
+					<i class='bx bxs-chevron-down arrow' ></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Inventory</a></li>
+					<li><a href="#">Inventory Items</a></li>
+					<li><a href="#">Inventory Adjustment</a></li>
+					<li><a href="#">Card Design</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="icon-link">
+					<a href="#">
+						<i class="fa-solid fa-building-columns"></i>
+						<span class="link_name">Banking</span>
+					</a>
+					<i class='bx bxs-chevron-down arrow' ></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Banking</a></li>
+					<li><a href="#">Write Cheques</a></li>
+					<li><a href="#">Bank Cheques/Cash</a></li>
+					<li><a href="#">Reconciliation</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="icon-link">
+					<a href="#">
+						<i class="fa-solid fa-scale-unbalanced"></i>
+						<span class="link_name">Accounting</span>
+					</a>
+					<i class='bx bxs-chevron-down arrow' ></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Accounting</a></li>
+					<li><%= link_to "Chart of Accounts", accounting_codes_path %></li>
+					<li><%= link_to "Journal Entries", accounting_entries_path %></li>
+					<li><%= link_to "Create Journals", new_accounting_entry_path %></li>
+				</ul>
+			</li>
+			<li>
+				<div class="icon-link">
+					<a href="#">
+						<i class="fa-solid fa-chart-pie"></i>
+						<span class="link_name">Reports</span>
+					</a>
+					<i class='bx bxs-chevron-down arrow' ></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Reports</a></li>
+					<li><%= link_to "Trial Balance", reports_trial_balance_path %></li>
+					<li><%= link_to "Income Statement", reports_income_statement_path %></li>
+					<li><%= link_to "Balance Sheet", reports_balance_sheet_path %></li>
+				</ul>
+			</li>
+
+			<li>
+				<div class="icon-link">
+					<a href="#">
+						<i class="fa-solid fa-users"></i>
+						<span class="link_name">Employees</span>
+					</a>
+					<i class='bx bxs-chevron-down arrow' ></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Employees</a></li>
+					<li><a href="#">UI Face</a></li>
+					<li><a href="#">Pigments</a></li>
+					<li><a href="#">Box Icons</a></li>
+				</ul>
+			</li>
+			<li>
+				<div class="icon-link">
+					<a href="#">
+						<i class="fa-solid fa-gear"></i>
+						<span class="link_name">Setting</span>
+					</a>
+					<i class='bx bxs-chevron-down arrow' ></i>
+				</div>
+				<ul class="sub-menu">
+					<li><a class="link_name" href="#">Setting</a></li>
+					<li><a href="#">UI Face</a></li>
+					<li><a href="#">Pigments</a></li>
+					<li><a href="#">Box Icons</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+<% end %>

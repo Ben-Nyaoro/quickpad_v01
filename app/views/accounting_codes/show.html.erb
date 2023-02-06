@@ -1,0 +1,14 @@
+
+<div class="container">
+	<p><%= @accounting_code.code %></p>
+	<p><%= @accounting_code.account %></p>
+	<p><%= @accounting_code.description %></p>
+	<p><%= @accounting_code.category %></p>
+	<p><%= @accounting_code.status %></p>
+	<hr><%= link_to 'Edit', edit_accounting_code_path(@accounting_code), class: "btn btn-success" %>
+	<%= link_to "Destroy", accounting_code_path(@accounting_code), 
+														data: { method: :delete, 
+														confirm: "Are you sure?"}, class: "btn btn-outline-danger" %><hr>
+</div>
+
+

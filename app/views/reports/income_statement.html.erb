@@ -1,0 +1,21 @@
+<h3>Income Statement</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Account Type</th>
+      <th>Total Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @account_totals.each do |account_type, total| %>
+      <tr>
+        <td><%= account_type %></td>
+        <td><%= number_to_currency(total) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Total Revenue: <%= number_to_currency(@total_revenue) %></h3>
+<h3>Total Expenses: <%= number_to_currency(@total_expenses) %></h3>
+<h3>Net Income: <%= number_to_currency(@total_revenue - @total_expenses) %></h3>

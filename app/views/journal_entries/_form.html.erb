@@ -1,0 +1,17 @@
+		<%= simple_form_for [@accounting_entry, @journal_entry] do |f| %>
+			<div class="row">
+				<div class="col">
+					<%= f.association :accounting_code, prompt: "Select Accounting code ..." %>
+					</div>
+				<div class="col">
+					<%= f.input :post_type, collection: JournalEntry::POST_TYPES, prompt: "Select Post type" %>
+				</div>
+				<div class="col">
+					<%= f.input :amount, class: "form-control", default: 0.00 %>
+				</div>
+				<div class="col">
+					<%= f.label "Action:" %>
+					<%= f.submit "Add Entry", class: "form-control btn, btn-success" %>
+				</div>
+			</div>
+		<% end %> <hr>

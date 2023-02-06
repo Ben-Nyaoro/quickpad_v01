@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"></html>
+  <head>
+    <title>Quickpad</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+		<%= favicon_link_tag asset_path('favicon.png') %>
+    <meta charset="UTF-8">
+    <!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+		<script src="https://kit.fontawesome.com/fa68d01b0f.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+				<%= render "shared/sidebar" %>
+		<% if current_user %>
+			<div class="home-section p-1">
+				<%= render 'shared/navbar' %>
+				<div class="home-content">
+					<i class='bx bx-menu' ></i>
+					<span class="text">ABC Co. Limited</span>
+				</div>
+		<% end %>
+				<div>
+					<%= render 'shared/flashes' %>
+					<%= yield %>
+				</div>
+			</div>
+		<%= javascript_pack_tag 'sidebar'%>
+  </body>
+
+</html>

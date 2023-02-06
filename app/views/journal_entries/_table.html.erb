@@ -1,0 +1,72 @@
+	<table class="table table-bordered table-sm">
+		<thead>
+			<tr>
+				<th>
+					Accounting Code
+				</th>
+				<th class="text-right">
+					Debit
+				</th>
+				<th class="text-right">
+					Credit
+				</th>
+				<% if @accounting_entry.pending? %>
+					<th class="text-center">
+						Actions
+					</th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @accounting_entry.journal_entries.each do |journal_entry| %>
+				<tr>
+					<td>
+						<%= journal_entry.accounting_code %>
+					</td>
+					<td class="text-right">
+						<% if journal_entry.is_debit? %>
+						<%= number_to_currency(journal_entry.amount, unit: '') %>
+						<% end %>
+					</td>
+					<td class="text-right">
+						<% if journal_entry.is_credit? %>
+						<%= number_to_currency(journal_entry.amount, unit: '') %>
+						<% end %>
+					</td>
+					<td class="list-inline text-center">						
+						<% if @accounting_entry.pending? %>
+							<li class="nav-item">
+							<a class="nav-link" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="fas fa-edit"></i>
+							</a>
+							<ul class="dropdown-menu">
+								<li></li>
+								<li>
+									<%= link_to "Edit", edit_accounting_entry_journal_entry_path(@accounting_entry, journal_entry), class: "dropdown-item" %>
+									<%= link_to "Delete", journal_entry_path(journal_entry), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" %>
+							</ul>
+						</li>
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+			<tr>
+        <td>
+          <strong>
+            Total
+          </strong>
+        </td>
+        <td class="text-right">
+          <strong>
+            <%= @debit_amount %>
+          </strong>
+        </td>
+        <td class="text-right">
+          <strong>
+            <%= @credit_amount %>
+          </strong>
+        </td>
+      </tr>
+		<%= @errors %>	
+		</tbody>
+	</table>

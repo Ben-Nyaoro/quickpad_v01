@@ -1,0 +1,29 @@
+<% unless user_signed_in? %>
+<main>
+	<!-- banner -->
+	<div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(banner-bk.jpg);">
+		<div class="container text-center text-md-left">
+			<header>
+				<div class="row justify-content-between">
+						<div class="col-2">
+							<%= image_tag "Logolong.png", alt: "logo", class:"logo" %>
+						</div>
+
+						<div class="col-6 align-self-center text-right">
+							<%= link_to "Login", new_user_session_path,  class: "cta-login" %>
+						</div>
+				</div>
+			</header>
+				<h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
+					A New Approach<br>
+					To Bookkeeping for SMEs
+				</h1>
+				<p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
+					Don't let accounting tasks slow your growth, count on Quickpad to keep it professional with its proven excellence in accounting. <br>
+					Focus on growing your business while Quickpad keeps the numbers for you.
+				</p>
+				<%= link_to "Get Started", new_user_registration_path, class: "btn my-4 font-weight-bold cta-start" %>
+		</div>
+	</div>
+</main>
+<% end %>

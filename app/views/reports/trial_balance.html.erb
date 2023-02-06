@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+      <th>Account</th>
+      <th>Debits</th>
+      <th>Credits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% trial_balance.each do |account, values| %>
+      <tr>
+        <td><%= account %></td>
+        <td><%= values[:debits] %></td>
+        <td><%= values[:credits] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Total</th>
+      <th><%= total_debits %></th>
+      <th><%= total_credits %></th>
+    </tr>
+  </tfoot>
+</table>

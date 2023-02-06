@@ -1,0 +1,36 @@
+<%= simple_form_for(@accounting_entry) do |f|  %>
+	<div class="row d-flex justify-content-between m-2">
+		<div class="col">
+			<%= f.label :ref_number %>
+			<%= f.text_field :ref_number, class: 'form-control' %>
+		</div>
+		<div class="col">
+			<%= f.label :date_prepared %>
+			<%= f.date_field :date_prepared, class: 'form-control' %>
+		</div>
+		<div class="col">
+			<%= f.label :date_posted %>
+			<%= f.date_field :date_posted, class: 'form-control' %>
+		</div>
+	</div>
+
+	<div class="row m-2">
+		<div class="col">
+			<%= f.input :book, collection: AccountingEntry::BOOKS, class: 'form-control' %>
+		</div>
+		<div class="col">
+			<%= f.input :status, collection: AccountingEntry::STATUSES, class: 'form-control' %>
+		</div>
+	</div>
+
+	<div class="row m-2">
+		<div class="col">
+			<%= f.input :particular, class: 'form-control' %>
+		</div>
+	</div>
+	<div class="row m-2">
+		<div class="col">
+			<%= f.submit class: 'btn btn-success form-control' %>
+		</div>
+	</div>
+<% end %>
